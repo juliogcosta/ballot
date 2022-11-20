@@ -11,8 +11,8 @@
 	<groupId>com.demo</groupId>
 	<artifactId>ballot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ballot-one</name>
-	<description>to demo</description>
+	<name>ballot</name>
+	<description>to demo ballot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
