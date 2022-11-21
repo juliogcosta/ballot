@@ -12,6 +12,7 @@ import java.util.zip.Checksum;
 import org.json.JSONObject;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -27,6 +28,9 @@ import com.demo.ballot.Observables;
 @RestController
 public class Ballot implements ApplicationContextAware 
 {
+	@Value("${ballot.number}")
+	protected String ballotNumber;
+
 	@Autowired
 	protected ApplicationContext context;
 
@@ -38,7 +42,7 @@ public class Ballot implements ApplicationContextAware
 		return ResponseEntity.ok().build();
 	}
 
-	@GetMapping(path = "/ballot/log")
+	@GetMapping(path = "/ballot/zerezima")
 	public ResponseEntity<String> log(@RequestHeader(name = "X-Secret", required = true) String secret)
 	{
 		if (secret == null || !secret.equals(Observables.getSecret())) 
